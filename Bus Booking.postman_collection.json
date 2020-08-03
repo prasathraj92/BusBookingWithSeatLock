@@ -1,0 +1,168 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bus Booking",
+		"_postman_id": "ad809444-dfcc-215f-fa3e-7f0704e92431",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Bus",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Bus",
+			"request": {
+				"url": "http://localhost:8080/admin/addBus",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"busNumber\" : \"2\",   \r\n\"operatorName\" : \"KPN\",\r\n\"departure\" : \"2020-08-02 20:10:33.578\", \r\n\"arrivalTime\" : \"2020-08-03 08:10:33.578\", \r\n\"duration\" : 10,    \r\n\"price\" : 1000,        \r\n\"totalSeats\" : 40,  \r\n\"availableSeats\" : 39, \r\n\"source\" : \"Chennai\",  \r\n\"destination\" : \"Theni\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search Bus",
+			"request": {
+				"url": "http://localhost:8080/booking/search",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"source\" : \"Chennai\",  \r\n\"destination\" : \"Theni\",\r\n\"travelDate\" : \"2020-08-02\",\r\n\"returnDate\" : \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add Seats",
+			"request": {
+				"url": "http://localhost:8080/admin/addSeat",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "busNumber",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "noOfSeats",
+							"value": "20",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "seatType",
+							"value": "sleeper",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "birth",
+							"value": "Y",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bus Seat Details",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/booking/seats?busNumber=001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"seats"
+					],
+					"query": [
+						{
+							"key": "busNumber",
+							"value": "001",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "busNumber",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Book Seats",
+			"request": {
+				"url": "http://localhost:8080/booking/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"busNumber\" : \"1\",\n\"seatNo\" : \"2\",\n\"userId\" : \"PrasathRaj92\",    \n\"noOfSeats\" : \"2\", \n\"travelDate\" : \"\",\n\"seats\": [{\n        \"id\": \"1\",\n        \"seatType\": \"sleeper\",\n        \"birth\": \"Y\",\n        \"status\": \"Y\",\n        \"passangerName\": \"Prasath\"\n    },\n    {\n        \"id\": \"2\",\n        \"seatType\": \"sleeper\",\n        \"birth\": \"Y\",\n        \"status\": \"Y\",\n        \"passangerName\": \"Raja\"\n    }]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
