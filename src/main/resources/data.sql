@@ -1,0 +1,54 @@
+
+DROP TABLE IF EXISTS USER;
+
+CREATE TABLE USER (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  user_name VARCHAR(250) NOT NULL,
+  first_name VARCHAR(250) NOT NULL,
+  last_name VARCHAR(250) NOT NULL,
+  age INT NOT NULL,
+  email_address VARCHAR(250) NOT NULL,
+  mobile_number VARCHAR(250) NOT NULL,
+  whats_app VARCHAR(2) NOT NULL
+);
+
+DROP TABLE IF EXISTS BUS_DETAILS;
+
+CREATE TABLE BUS_DETAILS (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  bus_number VARCHAR(250) NOT NULL,
+  operator_name VARCHAR(250) NOT NULL,
+  departure TIMESTAMP NOT NULL,
+  arrival_time TIMESTAMP NOT NULL,
+  duration INT NOT NULL,
+  price INT NOT NULL,
+  total_seats INT NOT NULL,
+  available_seats INT NOT NULL,
+  source VARCHAR(250) NOT NULL,
+  destination VARCHAR(250) NOT NULL
+                
+);
+
+DROP TABLE IF EXISTS SEAT;
+
+CREATE TABLE SEAT (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  seat_type VARCHAR(250) NOT NULL,
+  birth VARCHAR(250) NOT NULL,
+  status VARCHAR(250) NOT NULL,
+  bus_id INT NOT NULL,
+  passanger_name VARCHAR(250) 
+);
+
+DROP TABLE IF EXISTS PRE_BOOKING;
+
+CREATE TABLE PRE_BOOKING (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  bus_number INT NOT NULL,
+  seat_number INT NOT NULL,
+  unique_id VARCHAR(250) NOT NULL UNIQUE, 
+  user_id VARCHAR(250) NOT NULL,
+  status VARCHAR(250) NOT NULL,
+  passanger_name VARCHAR(250) 
+);
+
